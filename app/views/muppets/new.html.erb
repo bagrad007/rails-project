@@ -1,0 +1,15 @@
+<%= form_for @muppet do |f| %>
+
+<%= f.label "Muppet Name" %>
+<%= f.text_field :name %>
+<%= f.label "Muppet Job" %>
+<%= f.text_field :job %>
+<%= f.label "Show Name/Date" %>
+<%= f.fields_for :shows do |show| %>
+    <%= show.label "Name" %>
+    <%= show.text_field :name %>
+    <%= show.label "Date" %>
+    <%= show.date_field :date %>
+    <% end %>
+<%= f.submit "Hire Muppet"%>
+<% end %>
