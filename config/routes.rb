@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   post "/signup", to: "users#create"
   get "/login", to: "sessions#new", as: "login"
   post "/login", to: "sessions#create"
-  post "/logout" => "sessions#destroy"
+  post "/logout", to: "sessions#destroy"
   get "/auth/github/callback", to: "sessions#create_with_github"
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
