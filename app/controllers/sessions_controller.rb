@@ -1,4 +1,6 @@
 class SessionsController < ApplicationController
+  # skip_before_action :verify_authenticity_token, only: :create
+
   def new
     @user = User.new
   end
@@ -23,6 +25,8 @@ class SessionsController < ApplicationController
   end
 
   def create_with_github
-    binding.pry
+    user_info = request.env["omniauth.auth"]
+    current_user.update_column(:access_token, user_info[:credentials][:token])
+    redirect_to root_path
   end
 end
