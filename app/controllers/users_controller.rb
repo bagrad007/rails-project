@@ -16,6 +16,11 @@ class UsersController < ApplicationController
     set_user
   end
 
+  def home
+    binding.pry
+    @shows = Show.all
+  end
+
   private
 
   def user_params

@@ -5,7 +5,8 @@ class MuppetsController < ApplicationController
 
   def new
     @muppet = Muppet.new
-    @muppet.shows.build
+    # binding.pry
+    @muppet.muppet_shows.build
   end
 
   def create
@@ -18,9 +19,13 @@ class MuppetsController < ApplicationController
     end
   end
 
+  def index
+    @muppets = Muppet.all
+  end
+
   private
 
   def muppet_params
-    params.require(:muppet).permit(:name, :job, shows_attributes: [:name, :date])
+    params.require(:muppet).permit(:name, muppet_shows_attributes: [:name, :job])
   end
 end

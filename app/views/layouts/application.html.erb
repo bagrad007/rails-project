@@ -27,9 +27,12 @@
           <a class="nav-item nav-link" href="/users/home">Home</a>
           <a class="nav-item nav-link" href="/muppets">Cast Members</a>
           <a class="nav-item nav-link" href="/muppets/new">Hire a Muppet</a>
+          <a class="nav-item nav-link" href="/shows/new">Start a Show</a>
         </div>
         <div class="nav navbar-nav ms-auto">
-          <a class="nav-item nav-link" href="<%logout_path%>">Logout</a>
+        <%= link_to "Logout", logout_path, method: "delete", class: "nav-item nav-link" %>
+
+         <!--<%= button_to "Logout", logout_path, method: :post, class: "nav-item nav-link" %> -->
         </div>
 
         <div class="nav navbar-nav ms-auto">

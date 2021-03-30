@@ -1,10 +1,8 @@
 class User < ApplicationRecord
   has_many :shows
-  has_many :muppets, through: :shows
+  # has_many :muppets, through: :shows
   has_secure_password
 
   validates_uniqueness_of :username
-  validates_presence_of :username
-  validates_uniqueness_of :password
-  validates_presence_of :password
+  validates_presence_of :username, :password
 end

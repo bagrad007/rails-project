@@ -7,7 +7,8 @@ class SessionsController < ApplicationController
     @user = User.find_by(username: params[:user][:username])
     if @user && @user.authenticate(params[:user][:password])
       session[:user_id] = @user.id
-      redirect_to user_muppets_path(@user)
+      binding.pry
+      redirect_to root_path
     elsif @user
       @errors = ["Invalid Password"]
       render :new
@@ -19,6 +20,6 @@ class SessionsController < ApplicationController
 
   def destroy
     session.clear
-    redirect_to "/"
+    redirect_to root_path
   end
 end

@@ -4,7 +4,6 @@ class CreateShows < ActiveRecord::Migration[6.1]
       t.string :name
       t.date :date
       t.integer :user_id
-      t.integer :muppet_id
 
       t.timestamps
     end

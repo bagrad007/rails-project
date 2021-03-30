@@ -2,14 +2,10 @@
 
 <%= f.label "Muppet Name" %>
 <%= f.text_field :name %>
-<%= f.label "Muppet Job" %>
-<%= f.text_field :job %>
 <%= f.label "Show" %>
-<%= f.fields_for :shows do |show| %>
-    <%= show.label "Name" %>
-    <%= show.text_field :name %>
-    <%= show.label "Date" %>
-    <%= show.date_field :date %>
+<%= f.fields_for :muppet_shows do |shows| %>
+    <%= shows.collection_select :show_id, Show.all, :id, :name %>
+
     <% end %>
 <%= f.submit "Hire Muppet"%>
 <% end %>

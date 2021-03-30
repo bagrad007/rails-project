@@ -10,11 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_25_175246) do
+ActiveRecord::Schema.define(version: 2021_03_29_164812) do
+
+  create_table "muppet_shows", force: :cascade do |t|
+    t.string "job"
+    t.integer "muppet_id"
+    t.integer "show_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "muppets", force: :cascade do |t|
     t.string "name"
-    t.string "job"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -23,7 +30,6 @@ ActiveRecord::Schema.define(version: 2021_03_25_175246) do
     t.string "name"
     t.date "date"
     t.integer "user_id"
-    t.integer "muppet_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
