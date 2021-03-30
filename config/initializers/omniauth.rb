@@ -1,5 +1,4 @@
 Rails.application.config.middleware.use OmniAuth::Builder do
-  binding.pry
   provider :github, ENV["GITHUB_KEY"], ENV["GITHUB_SECRET"]
 
   # OmniAuth.config.on_failure = Proc.new { |env|

@@ -16,6 +16,14 @@ Rails.application.routes.draw do
   get "/login", to: "sessions#new", as: "login"
   post "/login", to: "sessions#create"
   get "/logout", to: "sessions#destroy"
-  get "/auth/github/callback", to: "sessions#create_with_github"
+  match "/auth/github/callback", to: "sessions#create_with_github", via: [:get, :post]
+
+  # match "/auth/github/callback" => "sessions#create_with_github", :as => :auth_callback
+
+  # session.with_options :path_prefix => "auth" do |oauth|
+  #   oauth.auth_failure "failure", :action => "auth_failure"
+  #   oauth.auth ":provider", :action => "auth_new"
+  #   oauth.auth_callback ":provider/callback", :action => "auth_create"
+  # end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
