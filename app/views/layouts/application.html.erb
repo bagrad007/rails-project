@@ -24,7 +24,7 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse navbarNavAltMarkup">
-     
+       <% if current_user %>
         <div class="navbar-nav">
           <a class="nav-item nav-link" href="<%=user_path(current_user)%>">Home</a>
           <a class="nav-item nav-link" href="/muppets/new">Hire a Muppet</a>
@@ -32,15 +32,14 @@
         </div>
         <div class="nav navbar-nav ms-auto">
         <%= link_to "Logout", logout_path, method: "delete", class: "nav-item nav-link" %>
-
-         <!--<%= button_to "Logout", logout_path, method: :post, class: "nav-item nav-link" %> -->
         </div>
 
+        <% else %>
         <div class="nav navbar-nav ms-auto">
           <a class="nav-item nav-link" href="/signup">Sign Up</a>
           <a class="nav-item nav-link" href="/login">Log In</a>
         </div>
-
+        <% end %>
       </div>
     </div>
   </nav>

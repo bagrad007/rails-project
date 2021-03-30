@@ -1,8 +1,13 @@
+<p>
 <%= @show.name %>
+</p>
 <% @show.muppets.each do |muppet| %>
+    <p>
     <%= label_tag "Name" %>
     <%= muppet.name %>
+    
     <%= label_tag "Muppet Job" %>
     <%= muppet.muppet_shows[0].job %>
-
+    <%= link_to "Edit",  edit_muppet_path(muppet)%>
+    </p>
     <% end %>

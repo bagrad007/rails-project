@@ -17,10 +17,6 @@ class UsersController < ApplicationController
     @shows = @user.shows
   end
 
-  def index
-    @shows = Show.all
-  end
-
   private
 
   def user_params

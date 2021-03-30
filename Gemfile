@@ -20,9 +20,9 @@ gem 'jbuilder', '~> 2.7'
 gem 'bcrypt'
 gem 'pry'
 gem 'dotenv'
-gem "omniauth"
-gem 'omniauth-github', github: 'omniauth/omniauth-github', branch: 'master'
-gem 'omniauth-rails_csrf_protection'
+gem "omniauth", '~> 1.9.1'
+gem 'omniauth-github'
+
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password

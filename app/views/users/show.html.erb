@@ -1,6 +1,7 @@
 <% @shows.each do |show| %>
 <p>
 <%= link_to show.name, user_show_path(current_user, show) %>
-
 </p>
+
+
 <% end %>

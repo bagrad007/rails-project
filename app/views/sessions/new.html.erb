@@ -1,9 +1,9 @@
-<%= form_for @user, url: auth_github_callback_path do |f|%>
+<%= form_for @user, url: login_path do |f|%>
 <%= f.label "Name" %>
 <%= f.text_field :username %>
 <%= f.label "Password" %>
 <%= f.password_field :password %>
 
 <%= f.submit "Login" %>
-<%= link_to "Login With Github", "/auth/github/callback", method: :post  %>
 <% end %>
+<%= button_to "Login With Github", "/auth/github", method: :post%>

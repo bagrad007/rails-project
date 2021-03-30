@@ -1,4 +1,6 @@
 class ShowsController < ApplicationController
+  before_action :require_login
+
   def new
     @show = Show.new
   end
@@ -16,12 +18,16 @@ class ShowsController < ApplicationController
   end
 
   def show
-    @show = Show.find_by(id: params[:id])
+    find_show
   end
 
   private
 
   def show_params
     params.require(:show).permit(:name, :date)
+  end
+
+  def find_show
+    @show = Show.find_by(id: params[:id])
   end
 end
