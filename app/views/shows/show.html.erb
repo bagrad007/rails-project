@@ -1,7 +1,8 @@
 <%= @show.name %>
 <% @show.muppets.each do |muppet| %>
+    <%= label_tag "Name" %>
     <%= muppet.name %>
+    <%= label_tag "Muppet Job" %>
     <%= muppet.muppet_shows[0].job %>
 
-    <% binding.pry %>
     <% end %>

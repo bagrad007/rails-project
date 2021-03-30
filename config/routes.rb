@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  resources :users, except: [:new, :create]
+  resources :users, except: [:new, :create] do
+    resources :shows
+  end
 
   resources :muppets do
     resources :shows

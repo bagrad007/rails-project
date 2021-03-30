@@ -5,4 +5,5 @@
 <%= f.password_field :password %>
 
 <%= f.submit "Login" %>
+<%= button_to "Login With Github", auth_github_callback_path  %>
 <% end %>
