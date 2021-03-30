@@ -5,6 +5,8 @@
 <%= f.label "Show" %>
 <%= f.fields_for :muppet_shows do |shows| %>
     <%= shows.collection_select :show_id, Show.all, :id, :name %>
+    <%= shows.label "Job" %>
+    <%= shows.text_field :job %>
 
     <% end %>
 <%= f.submit "Hire Muppet"%>

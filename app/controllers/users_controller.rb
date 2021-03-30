@@ -14,10 +14,10 @@ class UsersController < ApplicationController
 
   def show
     set_user
+    @shows = @user.shows
   end
 
-  def home
-    binding.pry
+  def index
     @shows = Show.all
   end
 

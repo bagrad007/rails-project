@@ -1,0 +1,7 @@
+<%= @show.name %>
+<% @show.muppets.each do |muppet| %>
+    <%= muppet.name %>
+    <%= muppet.muppet_shows[0].job %>
+
+    <% binding.pry %>
+    <% end %>

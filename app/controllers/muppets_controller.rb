@@ -5,14 +5,16 @@ class MuppetsController < ApplicationController
 
   def new
     @muppet = Muppet.new
-    # binding.pry
     @muppet.muppet_shows.build
   end
 
   def create
-    @muppet = Muppet.new(muppet_params)
+    @muppet = Muppet.new(name: params[:muppet][:name])
+    @muppet.save
     if @muppet.save
-      redirect_to muppets_path
+      @show = Show.find_by(id: params[:muppet][:muppet_id])
+      MuppetShow.create(show_id: params[:muppet][:muppet_shows_attributes]["0"][:show_id], muppet_id: @muppet.id, job: params[:muppet][:muppet_shows_attributes]["0"][:job])
+      redirect_to user_path(current_user)
     else
       @errors = @muppet.errors.full_messages
       render :new
@@ -26,6 +28,6 @@ class MuppetsController < ApplicationController
   private
 
   def muppet_params
-    params.require(:muppet).permit(:name, muppet_shows_attributes: [:name, :job])
+    params.require(:muppet).permit(:name, muppet_shows_attributes: [:job, :muppet_id, :show_id])
   end
 end

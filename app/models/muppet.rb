@@ -1,5 +1,5 @@
 class Muppet < ApplicationRecord
-  validates :name, presence: true, uniqueness: true
+  validates :name, presence: true
   has_many :muppet_shows
   has_many :shows, through: :muppet_shows
   has_many :users, through: :shows

@@ -1,13 +1,13 @@
 Rails.application.routes.draw do
   resources :users, except: [:new, :create]
 
-  resources :muppets
+  resources :muppets do
+    resources :shows
+  end
 
-  resources :shows, only: [:new, :create]
+  resources :shows
 
   root "welcome#home"
-
-  get "/users/home", to: "users#home"
 
   get "/signup", to: "users#new", as: "signup"
   post "/signup", to: "users#create"
