@@ -1,10 +1,10 @@
 <%= form_for muppet do |f| %>
 
 <%= f.label "Muppet Name" %>
-<%= f.text_field :name, class: "input"%>
+<%= f.text_field :name%>
 <%= f.label "Show" %>
 <%= f.fields_for :muppet_shows do |shows| %>
-    <%= shows.collection_select :show_id, Show.all, :id, :name, class: "input" %>
+    <%= shows.collection_select :show_id, Show.all, :id, :name %>
     <%= shows.label "Job" %>
     <%= shows.text_field :job %>
 
