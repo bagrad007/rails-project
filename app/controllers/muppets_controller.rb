@@ -4,6 +4,7 @@ class MuppetsController < ApplicationController
   def new
     @muppet = Muppet.new
     @muppet.muppet_shows.build
+    @shows = @user.shows
   end
 
   def create
@@ -15,7 +16,6 @@ class MuppetsController < ApplicationController
       redirect_to user_path(current_user)
     else
       @muppet.muppet_shows.build
-      binding.pry
       @errors = @muppet.errors.full_messages
       render :new
     end
@@ -23,14 +23,16 @@ class MuppetsController < ApplicationController
 
   def edit
     find_muppet
+    @shows = @user.shows
   end
 
   def update
     find_muppet
+    @show = MuppetShow.find_by(muppet_id: @muppet.id).show_id
+    current_user
     if @muppet.update(muppet_params)
-      redirect_to user_show_path(@muppet)
+      redirect_to user_show_path(@user, @show)
     else
-      @show = Show.find_by(id: params[:id])
       render :edit
     end
   end
@@ -43,5 +45,9 @@ class MuppetsController < ApplicationController
 
   def find_muppet
     @muppet = Muppet.find_by(id: params[:id])
+  end
+
+  def set_show
+    @show = Show.find_by(id: params[:id])
   end
 end

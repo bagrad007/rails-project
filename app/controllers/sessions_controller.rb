@@ -28,8 +28,6 @@ class SessionsController < ApplicationController
     user = User.find_or_create_by(username: request.env["omniauth.auth"]["info"]["nickname"]) do |u|
       u.password = "password"
     end
-    binding.pry
-    user.update_column(:access_token, user_info[:credentials][:token])
     if user.save
       session[:user_id] = user.id
       redirect_to user_path(user)

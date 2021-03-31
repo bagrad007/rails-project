@@ -4,5 +4,8 @@ class Muppet < ApplicationRecord
   has_many :shows, through: :muppet_shows
   has_many :users, through: :shows
 
+
+
   accepts_nested_attributes_for :muppet_shows
+
 end

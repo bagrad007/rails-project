@@ -11,6 +11,8 @@ Rails.application.routes.draw do
 
   root "welcome#home"
 
+  get "/shows_by_date", to: "shows#shows_by_date"
+
   get "/signup", to: "users#new", as: "signup"
   post "/signup", to: "users#create"
   get "/login", to: "sessions#new", as: "login"

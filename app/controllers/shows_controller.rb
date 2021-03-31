@@ -10,7 +10,7 @@ class ShowsController < ApplicationController
     @show.user_id = current_user.id
     @show.save
     if @show.save
-      redirect_to show_path(@show)
+      redirect_to user_path(@user)
     else
       @errors = @show.errors.full_messages
       render :new
@@ -19,6 +19,11 @@ class ShowsController < ApplicationController
 
   def show
     find_show
+  end
+
+  def shows_by_date
+    @shows = Show.organize_date
+    binding.pry
   end
 
   private
