@@ -1,14 +1,3 @@
-<%#= render partial: "form", locals: {muppet: @muppet} %>
-<%= form_for @muppet do |f| %>
+<%= render partial: "/application/errors", locals: {errors: @errors} %>
 
-<%= f.label "Muppet Name" %>
-<%= f.text_field :name %>
-<%= f.label "Show" %>
-<%= f.fields_for :muppet_shows do |shows| %>
-    <%= shows.collection_select :show_id, Show.all, :id, :name %>
-    <%= shows.label "Job" %>
-    <%= shows.text_field :job %>
-
-    <% end %>
-<%= f.submit "Hire Muppet"%>
-<% end %>
+<%= render partial: "form", locals: {muppet: @muppet} %>

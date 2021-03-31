@@ -19,7 +19,7 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.7'
 gem 'bcrypt'
 gem 'pry'
-gem 'dotenv'
+gem 'dotenv-rails'
 gem "omniauth", '~> 1.9.1'
 gem 'omniauth-github'
 
