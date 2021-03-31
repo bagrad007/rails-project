@@ -25,8 +25,16 @@ class SessionsController < ApplicationController
   end
 
   def create_with_github
-    user_info = request.env["omniauth.auth"]
-    current_user.update_column(:access_token, user_info[:credentials][:token])
-    redirect_to root_path
+    user = User.find_or_create_by(username: request.env["omniauth.auth"]["info"]["nickname"]) do |u|
+      u.password = "password"
+    end
+    binding.pry
+    user.update_column(:access_token, user_info[:credentials][:token])
+    if user.save
+      session[:user_id] = user.id
+      redirect_to user_path(user)
+    else
+      redirect_to signup_path
+    end
   end
 end

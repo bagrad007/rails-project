@@ -14,6 +14,8 @@ class MuppetsController < ApplicationController
       MuppetShow.create(show_id: @show.id, muppet_id: @muppet.id, job: params[:muppet][:muppet_shows_attributes]["0"][:job])
       redirect_to user_path(current_user)
     else
+      @muppet.muppet_shows.build
+      binding.pry
       @errors = @muppet.errors.full_messages
       render :new
     end
