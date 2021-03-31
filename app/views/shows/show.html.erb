@@ -8,7 +8,7 @@
     <%= muppet.name %>
     </p>
     <p>
-    <%= label_tag "Muppet Job" %>
+    <strong><%= label_tag "Muppet Job" %></strong>:
     <%= muppet.muppet_shows[0].job %>
     <%= link_to "Edit",  edit_muppet_path(muppet), class: "btn btn-info"%>
     </p>
