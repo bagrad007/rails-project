@@ -1,5 +1,8 @@
 <% @shows.each do |show| %>
 <p>
+<strong><%= show.user.username %></strong>
+</p>
+<p>
 <%= show.name %>
 <%=  show.date  %>
 </p>

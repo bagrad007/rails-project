@@ -23,7 +23,6 @@ class ShowsController < ApplicationController
 
   def shows_by_date
     @shows = Show.organize_date
-    binding.pry
   end
 
   private
