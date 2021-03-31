@@ -1,13 +1,16 @@
 <%= form_for muppet do |f| %>
-
-<%= f.label "Muppet Name" %>
-<%= f.text_field :name%>
-<%= f.label "Show" %>
+<div class="form-group col-md-6">
+<%= f.label "Muppet Name" %>:
+<%= f.text_field :name, class:"form-control"%>
+</div>
+<%= f.label "Show" %>:
 <%= f.fields_for :muppet_shows do |show| %>
-    <%= show.collection_select :show_id, shows, :id, :name %>
+<div class="form-group col-md-6">
+    <%= show.collection_select :show_id, shows, :id, :name, class: "form-select"%> <br>
     <%= show.label "Job" %>
-    <%= show.text_field :job %>
+    <%= show.text_field :job, class: "form-control" %>
 
     <% end %>
-<%= f.submit "Hire Muppet"%>
+    </div>
+<%= f.submit "Hire Muppet", class: "btn btn-primary"%>
 <% end %>
