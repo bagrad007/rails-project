@@ -1,7 +1,7 @@
-<p>
 
-<h2><%= @show.name %></h2>
-</p>
+<strong><h2><%= @show.name %></h2></strong>
+
+<% if !@show.muppets.empty? %>
 <% @show.muppets.each do |muppet| %>
     <p>
    <strong> <%= label_tag "Name" %>: </strong>
@@ -12,4 +12,9 @@
     <%= muppet.muppet_shows[0].job %>
     <%= link_to "Edit",  edit_muppet_path(muppet), class: "btn btn-info"%>
     </p>
-    <% end %>
+<% end %>
+<% else  %>
+
+<h3>You need muppets for the show!</h3>
+
+<% end %>

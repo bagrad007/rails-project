@@ -1,6 +1,11 @@
+<% if !@shows.empty? %>
 <% @shows.each do |show| %>
 <p>
 <%= link_to show.name, user_show_path(current_user, show), class: "btn btn-primary" %>
 </p>
 <% end %>
 <%= link_to "All Shows Organized by Date", "/shows_by_date", class: "btn btn-info"%>
+<% else  %>
+<h3>You Need a Show to get Started!</h3>
+<%= link_to "All Shows Organized by Date", "/shows_by_date", class: "btn btn-info"%>
+<% end %>
