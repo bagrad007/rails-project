@@ -36,8 +36,8 @@ of conduct, and the process for submitting pull requests to us.
 
 
 ## Authors
- - **Eva Yi Zheng** -  -
-    [Eva Yi Zheng](https://github.com/yizheng1709)
+ - **Luke Gill** -  -
+    [Luke Gill](https://github.com/bagrad007)
 
 ## License
 
