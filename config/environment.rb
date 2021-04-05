@@ -10,9 +10,9 @@ ActionView::Base.field_error_proc = Proc.new do |html_tag, instance|
   ### Cancelling additional <div> w/ class="adding field_with_errors"
   # html_tag.html_safe
   if html_tag.include?("<input")
-    html_tag.scan(/(.*)<input (.+>)/).flatten.join('<input class="field_with_errors ').html_safe
+    html_tag.scan(/(.*)<input class="(.+>)/).flatten.join('<input class="field_with_errors ').html_safe
   elsif html_tag.include?("<select")
-    html_tag.scan(/(.*)<select (.+>)/).flatten.join('<select class="field_with_errors ').html_safe
+    html_tag.scan(/(.*)<select class="(.+>)/).flatten.join('<select class="field_with_errors" ').html_safe
   else
     html_tag.html_safe
   end
