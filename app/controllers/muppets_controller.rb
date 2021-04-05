@@ -30,7 +30,7 @@ class MuppetsController < ApplicationController
     find_muppet
     @show = MuppetShow.find_by(muppet_id: @muppet.id).show_id
     current_user
-    if @muppet.update(muppet_params)
+    if @muppet.update(muppet_params) && current_user
       redirect_to user_show_path(@user, @show)
     else
       render :edit

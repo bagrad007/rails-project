@@ -4,11 +4,17 @@ class UsersController < ApplicationController
   end
 
   def create
-    if user = User.create(user_params)
-      session[:user_id] = user.id
-      redirect_to "/"
+    @user = User.create(user_params)
+    if @user.save
+      binding.pry
+      session[:user_id] = @user.id
+      redirect_to user_path(@user)
+    elsif @user
+      @errors = ["Invalid Password"]
+      render :new
     else
-      render "new"
+      @errors = ["Invalid Username"]
+      render :new
     end
   end
 
